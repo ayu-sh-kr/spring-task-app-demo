@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create User</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+<div class="container w-full mx-auto p-2 bg-black rounded-md">
+    <div>
+        <ul class="flex justify-between px-2">
+            <li class="hover:bg-white text-white hover:text-black px-1 rounded-md"><a href="#" th:href="@{/home}">Home</a></li>
+            <li class="hover:bg-white text-white hover:text-black px-1 rounded-md"><a href="#" th:href="@{/todo}">Your Tasks</a></li>
+            <li class="hover:bg-white text-white hover:text-black px-1 rounded-md"><a href="#" th:href="@{/todo/add}">Create Tasks</a></li>
+            <li class="hover:bg-white text-white hover:text-black px-1 rounded-md"><a href="#" th:href="@{/login}">Logout</a></li>
+        </ul>
+    </div>
+</div>
+<div class="w-[100] h-[100vh] bg-white shadow-2xl rounded-md m-6 flex justify-center items-center">
+    <div class="bg-slate-300 rounded-md shadow-2xl p-4 w-64">
+        <span th:text="${message}" class="text-red-600"></span>
+        <form action="#" th:action="@{/user/create}" th:object="${request}" method="post">
+            <div class="text-2xl font-mono font-semibold border-b-2 border-black">Create an Account!</div>
+            <div class="flex flex-col gap-2 mt-2 font-mono font-semibold">
+                <label>Username:</label>
+                <input type="text" class="rounded-md p-1 outline-2 outline-violet-600 focus:font-light"
+                       th:field="*{username}">
+            </div>
+            <div class="flex flex-col gap-2 mt-2 font-mono font-semibold">
+                <label>Email:</label>
+                <input type="email" class="rounded-md p-1 outline-2 outline-violet-600 "
+                       th:field="*{email}">
+            </div>
+            <div class="flex flex-col gap-2 mt-2 font-mono font-semibold">
+                <label>Password:</label>
+                <input type="password" class="rounded-md p-1 outline-2 outline-violet-600 "
+                       th:field="*{password}">
+            </div>
+            <div class="flex justify-between font-light font-semibold mt-2">
+                <p class="font-light">Already have an account?</p>
+                <a href="#" th:href="@{/login}">Login!</a>
+            </div>
+            <div class="flex justify-center mt-2">
+                <button class="w-full bg-blue-500 rounded-md p-1">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

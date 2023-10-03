@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Add TODO</title>
-    <link rel="stylesheet" href="/static/output.css">
+    <title>Title</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
@@ -17,23 +16,24 @@
         </ul>
     </div>
 </div>
-<div class="w-[100] h-[100vh] bg-white shadow-2xl rounded-md m-6 flex justify-center items-center">
+<div class="flex justify-items-center">
+
 <div class="mx-auto rounded-md shadow-2xl bg-slate-200
 w-96 p-4">
-    <div th:text="${message}" class="text-3xl text-green-400 font-semibold mb-2"></div>
-    <form action="#" th:action="@{/todo/add}" method="post" class="flex flex-col gap-4">
+    <form action="#" th:action="@{/todo/{listId}/edit(listId=${list.id})}" method="post" class="flex flex-col gap-4" th:object="${list}">
         <div class="">
+            <input type="text" class="hidden" th:field="${list.id}">
             <h1 class="text-3xl font-mono font-semibold border-b-2 border-violet-400">Title</h1>
-            <input id="title" placeholder="Enter the title Title" th:field="${todos.title}"
-            class="focus:outline-none focus:outline-violet-600 rounded-md
+            <input id="title" placeholder="Enter the title Title" th:field="${list.title}"
+                   class="focus:outline-none focus:outline-violet-600 rounded-md
                 font-mono font-light w-full mt-2 py-2"
             >
         </div>
         <div class="">
             <h1 class="text-3xl font-mono font-semibold border-b-2 border-violet-400">Description</h1>
             <textarea id="description" placeholder="Enter the title description"
-                   class="focus:outline-none focus:outline-violet-600 rounded-md
-                font-mono font-light w-full mt-2 py-2" th:field="${todos.description}"
+                      class="focus:outline-none focus:outline-violet-600 rounded-md
+                font-mono font-light w-full mt-2 py-2" th:field="${list.description}"
             ></textarea>
         </div>
 

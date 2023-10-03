@@ -8,18 +8,37 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
+<div class="container w-full mx-auto p-2 bg-black rounded-md">
+    <div>
+        <ul class="flex justify-between px-2">
+            <li class="hover:bg-white text-white hover:text-black px-1 rounded-md"><a href="#" th:href="@{/home}">Home</a></li>
+            <li class="hover:bg-white text-white hover:text-black px-1 rounded-md"><a href="#" th:href="@{/todo}">Your Tasks</a></li>
+            <li class="hover:bg-white text-white hover:text-black px-1 rounded-md"><a href="#" th:href="@{/todo/add}">Create Tasks</a></li>
+            <li class="hover:bg-white text-white hover:text-black px-1 rounded-md"><a href="#" th:href="@{/login}">Logout</a></li>
+        </ul>
+    </div>
+</div>
 <h2 class="text-4xl font-mono font-semibold">All your lists are here</h2>
 <div class="grid grid-cols-1 mx-auto shadow-2xl rounded-md container
-md:grid-cols-4
-py-4 px-4 sm:grid-cols-2">
-    <div class="bg-violet-500 rounded-md shadow-2xl px-3 w-[250px] m-2" th:each="list:${lists}">
+md:grid-cols-3
+py-4 px-4 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="bg-white rounded-md shadow-2xl px-3 w-[250px] m-2 md:mx-4 md:w-[200px] py-2" th:each="list:${lists}">
         <h1 class="text-4xl mt-2 border-b-2 font-semibold font-mono" th:text="${list.getTitle()}">Heading</h1>
         <p class="font-mono font-light" th:text="${list.getDescription()}">Some Content</p>
+        <div class="my-2 border-t-2 py-4 flex justify-between">
+            <a  href="#" th:href="@{/todo/{listId}/edit/(listId=${list.getId()})}"
+                class="bg-purple-700 p-2 rounded-md"
+            >Edit
+            </a>
+            <a th:href="@{/todo/{listId}/delete/(listId=${list.getId()})}"
+                    class="bg-red-400 px-2 rounded-md text-center" href="#">Remove
+            </a>
+        </div>
     </div>
 </div>
 
 <div class="mt-4 mx-auto">
-    <a href="/todo/add" class="bg-violet-500 py-2 rounded-md">Click to Add More</a>
+    <a th:href="@{/todo/add}" href="#" class="bg-violet-500 py-2 rounded-md">Click to Add More</a>
 </div>
 </body>
 </html>

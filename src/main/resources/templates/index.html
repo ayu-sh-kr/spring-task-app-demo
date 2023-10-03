@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+
+<body>
+<div class="container w-full mx-auto p-2 bg-black rounded-md">
+    <div>
+        <ul class="flex justify-between px-2">
+            <li class="hover:bg-white text-white hover:text-black px-1 rounded-md"><a href="#" th:href="@{/home}">Home</a></li>
+            <li class="hover:bg-white text-white hover:text-black px-1 rounded-md"><a href="#" th:href="@{/todo}">Your Tasks</a></li>
+            <li class="hover:bg-white text-white hover:text-black px-1 rounded-md"><a href="#" th:href="@{/todo/add}">Create Tasks</a></li>
+            <li class="hover:bg-white text-white hover:text-black px-1 rounded-md"><a href="#" th:href="@{/login}">Logout</a></li>
+        </ul>
+    </div>
+</div>
+<div>
+    hi you have been logged in successfully
+</div>
+<button th:action="@{/logout}" value="Log out">Logout</button>
+<a href="#" th:href="@{/logout}">Logout</a>
+<h1 th:text="${user}"></h1>
+
+<ul>
+    <li><a href="#" th:href="@{/todo/{userId}(userId=${userId})}">Your Tasks</a></li>
+    <li><a href="#" th:href="@{/create}"></a></li>
+</ul>
+</body>
+</html>
