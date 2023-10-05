@@ -18,16 +18,23 @@
         </ul>
     </div>
 </div>
-<div>
-    hi you have been logged in successfully
-</div>
-<button th:action="@{/logout}" value="Log out">Logout</button>
-<a href="#" th:href="@{/logout}">Logout</a>
+<section class=" mt-12 container flex justify-between p-4 shadow-2xl h-[500px] w-[100vw] mx-auto bg-black gap-7">
+    <div class="p-2 text-left">
+        <h1 class="text-6xl text-white font-serif border-b-2 whitespace-break-spaces">Welcome to todo web</h1>
+        <p class="text-white mt-2">This web application is designed to help you manage your tasks.</p>
+    </div>
+    <div>
+        <h1 class="text-white text-6xl border-b-2">Features we offer</h1>
+        <ul class="text-3xl text-white mt-4 space-y-6 list-disc">
+            <li class="list-item">Create a task for the day</li>
+            <li>Modify the already created task</li>
+            <li>Set the timer and notification for your task</li>
+            <li>Add note and manage them</li>
+            <li>Categorise and Customise as you like</li>
+        </ul>
+    </div>
+</section>
 <h1 th:text="${user}"></h1>
 
-<ul>
-    <li><a href="#" th:href="@{/todo/{userId}(userId=${userId})}">Your Tasks</a></li>
-    <li><a href="#" th:href="@{/create}"></a></li>
-</ul>
 </body>
 </html>
