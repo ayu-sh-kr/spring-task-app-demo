@@ -1,12 +1,7 @@
 package dev.archimedes;
 
-import dev.archimedes.models.User;
-import dev.archimedes.repository.UserRepository;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @SpringBootApplication
 public class WebMvcApplication {
@@ -15,15 +10,15 @@ public class WebMvcApplication {
         SpringApplication.run(WebMvcApplication.class, args);
     }
 
-    @Bean
-    public CommandLineRunner commandLineRunner(UserRepository repository){
-        return runner -> {
-            User user = new User();
-            user.setName("Ayush Jaiswal");
-            user.setPassword(new BCryptPasswordEncoder().encode("kumarj"));
-            user.setEmail("akjaiswal2003@gmail.com");
-            repository.save(user);
-        };
-    }
+//    @Bean
+//    public CommandLineRunner commandLineRunner(UserRepository repository){
+//        return runner -> {
+//            User user = new User();
+//            user.setName("Ayush Jaiswal");
+//            user.setPassword(new BCryptPasswordEncoder().encode("kumarj"));
+//            user.setEmail("akjaiswal2003@gmail.com");
+//            repository.save(user);
+//        };
+//    }
 
 }
