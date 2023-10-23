@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class CustomUserDetailsService implements UserDetailsService {
 
-    private UserRepository repository;
+    private final UserRepository repository;
 
     @Autowired
     public CustomUserDetailsService(UserRepository repository) {
@@ -24,7 +24,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         log.info(email);
         User user = repository.findByEmail(email);
-        log.info(user.getName() + " " +  user.getEmail());
+//        log.info(user.getName() + " " +  user.getEmail());
         if(user == null){
             throw new UsernameNotFoundException("user not found with email: " + email);
         }
