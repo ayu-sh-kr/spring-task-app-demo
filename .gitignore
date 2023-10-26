@@ -31,3 +31,9 @@ build/
 
 ### VS Code ###
 .vscode/
+
+###igonore code files###
+/node_modules/
+./tailwind.config.js
+./package-lock.json
+./package.json
