@@ -33,7 +33,6 @@ build/
 .vscode/
 
 ###igonore code files###
-/node_modules/
-./tailwind.config.js
-./package-lock.json
-./package.json
+tailwind.config.js
+package.json
+package-lock.json
